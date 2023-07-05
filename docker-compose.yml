@@ -1,0 +1,45 @@
+---
+version: '3.1'
+
+services:
+    webserver:
+      image: nginx:alpine
+      container_name: frontend-nginx
+      restart: unless-stopped
+      volumes:
+        - ./:/var/www/html
+        - ./nginx:/etc/nginx/conf.d/
+      ports:
+        - 80:80
+
+    my-app:
+        build:
+          context: ./
+        volumes:
+          - .:/var/www/html
+
+    composer:
+        build:
+          context: ./
+        volumes:
+          - .:/var/www/html
+        command: sh -c "composer install"
+    
+#    database:
+#        container_name: "database"
+#        image: mariadb:10.5
+#        environment:
+#          MYSQL_DATABASE: laravel
+#          MYSQL_USER: laravel
+#          MYSQL_PASSWORD: secret
+#          MYSQL_ROOT_PASSWORD: secret
+#        ports:
+#          - "3306:3306"
+#        networks:
+#          - invoices_network
+#        volumes:
+#          - mysql:/var/lib/mysql
+
+# - Volumes
+#volumes:
+#  mysql:

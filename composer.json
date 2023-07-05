@@ -1,0 +1,7 @@
+{
+    "require": {
+        "league/csv": "^9.8",
+        "league/flysystem": "^3.15",
+        "guzzlehttp/guzzle": "*"
+    }
+}
