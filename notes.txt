@@ -1,2 +1,8 @@
 - Webscrapper
-- Todos los servicios dentro de la ima
+
+ol class target with class row
+next direct child is li
+
+we want what is inside a which is turn inside h3 which is inside article and finally li
+
+//ol[@class="row"]//li//article//h3/a
